@@ -12,7 +12,7 @@ public class Train {
     @GeneratedValue
     private int id;
 
-    private String from;
+    private String fromCity;
 
     private String destination;
 
@@ -25,11 +25,11 @@ public class Train {
     }
 
     public String getFrom() {
-        return from;
+        return fromCity;
     }
 
     public void setFrom(String from) {
-        this.from = from;
+        this.fromCity = from;
     }
 
     public String getDestination() {
@@ -46,13 +46,13 @@ public class Train {
         if (o == null || getClass() != o.getClass()) return false;
         Train train = (Train) o;
         return id == train.id &&
-                Objects.equals(from, train.from) &&
+                Objects.equals(fromCity, train.fromCity) &&
                 Objects.equals(destination, train.destination);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, from, destination);
+        return Objects.hash(id, fromCity, destination);
     }
 }

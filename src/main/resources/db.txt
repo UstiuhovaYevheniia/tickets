@@ -1,0 +1,16 @@
+create database trains;
+
+use trains;
+
+drop table train;
+drop table transit_cities;
+
+create table train(
+id int primary key auto_increment,
+transit_cities int references transit_cities(id));
+
+create table transit_cities(
+id int primary key auto_increment,
+number_of_station int not null,
+city_name
+);
