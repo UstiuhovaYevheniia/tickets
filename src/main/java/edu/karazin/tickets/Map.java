@@ -1,9 +1,7 @@
 package edu.karazin.tickets;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 
 public class Map {
 
@@ -63,13 +61,21 @@ public class Map {
 		}
 
 		@Override
-		public int hashCode() {
-			TODO
+		public boolean equals(Object o) {
+			if (this == o) return true;
+			if (!(o instanceof Node)) return false;
+
+			Node node = (Node) o;
+
+			if (!getName().equals(node.getName())) return false;
+			return getConnections().equals(node.getConnections());
 		}
 
 		@Override
-		public boolean equals(Object obj) {
-			TODO
+		public int hashCode() {
+			int result = getName().hashCode();
+			result = 31 * result + getConnections().hashCode();
+			return result;
 		}
 	}
 
@@ -104,16 +110,6 @@ public class Map {
 
 		public int getLength() {
 			return length;
-		}
-
-		@Override
-		public int hashCode() {
-			TODO
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			TODO
 		}
 	}
 }
