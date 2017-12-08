@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface TrainRepository extends CrudRepository<Train, Long> {
 
-    Iterable<Train> getAllByFromAndAndDestination(String from, String destination);
+//    Iterable<Train> getAllByFromAndAndDestination(String fromCity, String destination);
 }
