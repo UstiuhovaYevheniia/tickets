@@ -16,6 +16,14 @@ public class Train {
 
     private String destination;
 
+    public Train() {
+    }
+
+    public Train(String fromCity, String destination) {
+        this.fromCity = fromCity;
+        this.destination = destination;
+    }
+
     public int getId() {
         return id;
     }
@@ -24,12 +32,12 @@ public class Train {
         this.id = id;
     }
 
-    public String getFrom() {
+    public String getFromCity() {
         return fromCity;
     }
 
-    public void setFrom(String from) {
-        this.fromCity = from;
+    public void setFromCity(String fromCity) {
+        this.fromCity = fromCity;
     }
 
     public String getDestination() {

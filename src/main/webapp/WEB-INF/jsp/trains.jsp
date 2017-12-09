@@ -23,5 +23,15 @@
 
 SOME LIST OF TRAINS
 
+<form:form modelAttribute="searchForm">
+    <form:input path="searchText"/>
+    <input type="submit" value="Search"/>
+</form:form>
+<ul>
+    <c:forEach items="${trains}" var="train">
+        <li>${train.fromCity} - ${train.destination}</li>
+    </c:forEach>
+</ul>
+<p>AFTER LIST</p>
 </body>
 </html>
