@@ -7,10 +7,22 @@ drop table transit_cities;
 
 create table train(
 id int primary key auto_increment,
-transit_cities int references transit_cities(id));
+from_city varchar(30) not null,
+destination varchar(30) not null);
 
 create table transit_cities(
 id int primary key auto_increment,
 number_of_station int not null,
-city_name
+city_name varchar(30)
 );
+
+insert into train(from_city, destination) values ("Kyiv", "Kharkiv");
+insert into train(from_city, destination) values ("Kharkiv", "Lviv");
+insert into train(from_city, destination) values ("Kyiv", "Lviv");
+insert into train(from_city, destination) values ("Myrhorod", "Lubny");
+insert into train(from_city, destination) values ("WhiteHorse", "Lubny");
+
+
+select * from train;
+
+select count(*) as col_0_0_ from train;
