@@ -8,7 +8,7 @@ public interface TrainService {
 
     Train getTrain(Long id);
 
-    List<Train> searchTrains(String searchText);
+    List<Train> searchTrains(String fromCity, String destination);
 
     Long addTrain(Train train);
 

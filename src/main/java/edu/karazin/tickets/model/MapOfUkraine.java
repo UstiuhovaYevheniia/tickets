@@ -1,6 +1,5 @@
 package edu.karazin.tickets.model;
 
-import edu.karazin.tickets.web.SearchController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +11,7 @@ import java.util.Set;
 
 public class MapOfUkraine {
 
-	private static final Logger log = LoggerFactory.getLogger(SearchController.class);
+	private static final Logger log = LoggerFactory.getLogger(MapOfUkraine.class);
 
 	public static final Graph UA = new Graph();
 

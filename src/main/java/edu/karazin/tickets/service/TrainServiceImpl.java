@@ -24,23 +24,14 @@ public class TrainServiceImpl implements TrainService {
         return null;
     }
 
-	@SuppressWarnings("unchecked")
- 	private static final List<Train> TRAINS = new ArrayList() {{
-        			add(new Train("Kharkiv", "Vilnyus"));
-        			add(new Train("Kyiv", "Kharkiv"));
-        	}};
-
 
     @Override
-    public List<Train> searchTrains(String searchText) {
-        System.out.println("\nTrainServiceImpl.searchTrains\n");
-        System.out.println(TRAINS);
-        System.out.println("Repository: " + repository.count());
+    public List<Train> searchTrains(String fromCity, String destination) {
         List<Train> trains = new LinkedList<>();
-        if (searchText == null || searchText.isEmpty()) {
+        if ((fromCity == null || fromCity.isEmpty()) &&
+                (destination == null || destination.isEmpty())) {
             repository.findAll().forEach(trains::add);
         }
-        System.out.println(trains);
 //        repository.getAllByFromAndAndDestination(fromCity, destination);
         return trains;
     }

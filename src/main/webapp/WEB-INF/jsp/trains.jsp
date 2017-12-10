@@ -23,8 +23,9 @@
 
 SOME LIST OF TRAINS
 
-<form:form modelAttribute="searchForm">
-    <form:input path="searchText"/>
+<form:form modelAttribute="trainsSearchForm">
+    <form:input path="fromCity"/>
+    <form:input path="destination"/>
     <input type="submit" value="Search"/>
 </form:form>
 <ul>

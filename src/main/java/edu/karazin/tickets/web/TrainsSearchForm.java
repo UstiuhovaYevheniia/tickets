@@ -2,17 +2,30 @@ package edu.karazin.tickets.web;
 
 public class TrainsSearchForm {
 
-    private String searchText;
+    private String fromCity;
+    private String destination;
 
-    public TrainsSearchForm(String searchText) {
-        this.searchText = searchText;
+    public TrainsSearchForm() {
     }
 
-    public String getSearchText() {
-        return searchText;
+    public TrainsSearchForm(String fromCity, String destination) {
+        this.fromCity = fromCity;
+        this.destination = destination;
     }
 
-    public void setSearchText(String searchText) {
-        this.searchText = searchText;
+    public String getFromCity() {
+        return fromCity;
+    }
+
+    public void setFromCity(String fromCity) {
+        this.fromCity = fromCity;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 }

@@ -7,9 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Collections;
 
 @Controller
 @RequestMapping("trains")
@@ -24,11 +27,20 @@ public class TrainsController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String listTrains(Model model,
-                             @RequestParam(name = "searchText", required = false) String searchText) {
+    public String listTrains(Model model, @RequestParam(name = "fromCity", required = false) String fromCity,
+                             @RequestParam(name = "destination", required = false) String destination) {
         log.info("get all trains list");
-        model.addAttribute("trains", trainService.searchTrains(null));
-        model.addAttribute("searchForm", new TrainsSearchForm(searchText));
+        model.addAttribute("trainsSearchForm", new TrainsSearchForm(fromCity, destination));
+        model.addAttribute("trains", trainService.searchTrains(null, null));
+        return "trains";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String searchTrains(Model model,
+                               @ModelAttribute("trainsSearchForm") TrainsSearchForm form) {
+        log.info("get trains list");
+        model.addAttribute("trainsSearchForm", new TrainsSearchForm(form.getFromCity(), form.getDestination()));
+        model.addAttribute("trains", Collections.emptyList());
         return "trains";
     }
 }
